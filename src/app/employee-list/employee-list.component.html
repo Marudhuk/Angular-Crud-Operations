@@ -1,0 +1,24 @@
+
+<div class="table-container">
+  <table class="custom-table">
+    <thead class="sticky-header">
+      <tr>
+        <th>Employee Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="sticky-body">
+      <tr *ngFor="let x of employeeList" >
+        <td class="firstTd" (click)="viewDetails(x.id)">{{x.empname}}</td>
+        <td>{{x.age}}</td>
+        <td>{{x.email}}</td>
+        <td>
+          <button class="custom-button1 " (click)="updateData(x.id)">Edit</button>
+          <button class="custom-button2" (click)="deleteDataById(x.id,x.empname)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

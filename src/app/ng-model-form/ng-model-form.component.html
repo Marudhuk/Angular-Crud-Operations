@@ -1,0 +1,45 @@
+<div>
+    <form>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" [(ngModel)]="name">
+            <p>{{name}}</p>
+        </div>
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" [(ngModel)]="age">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" [(ngModel)]="email">
+        </div>
+        <div>
+            <button *ngIf="!visible" type="button" [disabled]="!(email.length && name.length)" (click)="onSubmit()">Submit</button>
+            <button *ngIf="visible" type="button" class="updateBtn" [disabled]="!(email.length && name.length)" (click)="updateData()">Update</button>
+        </div>
+    </form>
+</div>
+
+<div class="table-container">
+    <table class="custom-table">
+      <thead class="sticky-header">
+        <tr>
+          <th>Employee Name</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody class="sticky-body">
+        <tr *ngFor="let x of employeeList">
+          <td>{{x.name}}</td>
+          <td>{{x.age}}</td>
+          <td>{{x.email}}</td>
+          <td>
+            <button class="custom-button1 " (click)="editData(x.id)">Edit</button>
+            <button class="custom-button2" (click)="deleteDataById(x.id,x.name)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

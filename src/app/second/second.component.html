@@ -1,0 +1,35 @@
+<div class="form-container">
+    <form [formGroup]="reactiveForm" (ngSubmit)="postData()" novalidate>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"  formControlName="empname">
+      <div *ngIf="controls['empname'].invalid && (controls['empname'].dirty||controls['empname'].touched)">
+        <div class="error-container" [hidden]="!controls['empname'].errors?.['minlength']">
+          Min Length is required
+        </div>
+        <div class="error-container" [hidden]="!controls['empname'].errors?.['required']">
+          Firstname is required
+        </div>
+      </div>
+  
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age"  formControlName="age">
+      <div *ngIf="controls['age'].invalid && (controls['age'].dirty||controls['age'].touched)">
+        <div class="error-container" [hidden]="!controls['age'].errors?.['required']">
+          Age is required
+        </div>
+      </div>
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"  formControlName="email">
+      <div *ngIf="controls['email'].invalid && (controls['email'].dirty||controls['email'].touched)">
+        <div class="error-container" [hidden]="!controls['email'].errors?.['required']">
+          Email is required
+        </div>
+        <div class="error-container" [hidden]="!controls['email'].errors?.['pattern']">
+          Pattern is required
+        </div>
+      </div>
+      <button *ngIf="!isVisible" type="button" class="submitBtn" [disabled]="reactiveForm.invalid">Submit</button>
+      <button  type="button" class="updateBtn" (click)="updateData()" [disabled]="reactiveForm.invalid">Update</button>
+    </form>
+  </div>
