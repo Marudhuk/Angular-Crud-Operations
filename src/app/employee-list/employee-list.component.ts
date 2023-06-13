@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { EmpService } from '../emp.service';
 import { Router } from '@angular/router';
 
@@ -9,14 +9,19 @@ import { Router } from '@angular/router';
 })
 export class EmployeeListComponent implements OnInit {
 
-  constructor(private service:EmpService ,private route:Router) {
-    
-  }
+  constructor(private service:EmpService ,private route:Router) {}
+
+  @Input() childName:string='';
+
   employeeList:any;
+  // empName:string='';
+  templateRef='';
 
   ngOnInit(){
     this.getData();
+    console.log(this.childName,'Ccccc');
   }
+
   getData(){
     this.service.getAllEmp().subscribe(data=>{
       console.log(data);
@@ -27,7 +32,6 @@ export class EmployeeListComponent implements OnInit {
   goToDetails(id:number){
     this.route.navigate(['/employee',id])
   }
-
 
   updateData(id:number){
     this.route.navigate(['/second',id])

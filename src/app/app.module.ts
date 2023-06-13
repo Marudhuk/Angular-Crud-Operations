@@ -12,6 +12,7 @@ import { SecondComponent } from './second/second.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { NgModelFormComponent } from './ng-model-form/ng-model-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NgModelFormComponent } from './ng-model-form/ng-model-form.component';
     SecondComponent,
     EmployeeComponent,
     EmployeeListComponent,
-    NgModelFormComponent
+    NgModelFormComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,

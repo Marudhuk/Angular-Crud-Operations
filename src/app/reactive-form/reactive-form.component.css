@@ -1,0 +1,111 @@
+.form-container {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+  }
+  
+  .error-container {
+    color: red;
+    margin-top: 5px;
+  }
+  
+  .submitBtn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .submitBtn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  .updateBtn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .updateBtn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+
+  .table-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  thead th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  tbody td {
+    padding: 10px;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .editBtn,
+  .deleteBtn {
+    padding: 5px 10px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .deleteBtn {
+    background-color: #FF5722;
+  }
+  
+  .editBtn:hover,
+  .deleteBtn:hover {
+    background-color: #0c7cd5;
+  }
+  
+  .editBtn:focus,
+  .deleteBtn:focus {
+    outline: none;
+  }
+  
+  .editBtn:disabled,
+  .deleteBtn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+
+
+  

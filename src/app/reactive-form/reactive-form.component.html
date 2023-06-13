@@ -1,0 +1,74 @@
+<div class="form-container">
+  <form [formGroup]="employeeForm" novalidate>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" formControlName="name">
+    <div *ngIf="controls['name'].invalid && (controls['name'].dirty||controls['name'].touched)">
+      <div class="error-container" [hidden]="!controls['name'].errors?.['minlength']">
+        Min Length is required
+      </div>
+      <div class="error-container" [hidden]="!controls['name'].errors?.['required']">
+        Firstname is required
+      </div>
+    </div>
+
+
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" formControlName="email">
+    <div *ngIf="controls['email'].invalid && (controls['email'].dirty||controls['email'].touched)">
+      <div class="error-container" [hidden]="!controls['email'].errors?.['required']">
+        Email is required
+      </div>
+      <div class="error-container" [hidden]="!controls['email'].errors?.['pattern']">
+        Pattern is required
+      </div>
+    </div>
+
+    <label for="department">Department</label>
+    <input type="text" id="department" name="department" formControlName="department">
+    <div *ngIf="controls['department'].invalid && (controls['department'].dirty||controls['department'].touched)">
+      <div class="error-container" [hidden]="!controls['department'].errors?.['required']">
+        Department is required
+      </div>
+    </div>
+
+    <label for="address">Address</label>
+    <input type="text" id="address" name="address" formControlName="address">
+    <div *ngIf="controls['address'].invalid && (controls['address'].dirty||controls['address'].touched)">
+      <div class="error-container" [hidden]="!controls['address'].errors?.['required']">
+        Address is required
+      </div>
+    </div>
+
+
+    <button *ngIf="isVisible" type="button" class="submitBtn" (click)="addEmployee()" [disabled]="employeeForm.invalid">Submit</button>
+    <button *ngIf="!isVisible" type="button" class="updateBtn" (click)="updateData()" [disabled]="employeeForm.invalid">Update</button>
+  </form>
+</div> <br>
+<br>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employeeList">
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.department}}</td>
+        <td>{{employee.address}}</td>
+        <td>
+          <button type="button" class="editBtn" (click)="editData(employee.id)">Edit</button>
+          <button type="button" class="deleteBtn" (click)="deleteData(employee.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

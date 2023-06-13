@@ -29,7 +29,10 @@
           Pattern is required
         </div>
       </div>
-      <button *ngIf="!isVisible" type="button" class="submitBtn" [disabled]="reactiveForm.invalid">Submit</button>
-      <button  type="button" class="updateBtn" (click)="updateData()" [disabled]="reactiveForm.invalid">Update</button>
+      <button *ngIf="isVisible" type="button" class="submitBtn" [disabled]="reactiveForm.invalid">Submit</button>
+      <button *ngIf="!isVisible" type="button" class="updateBtn" (click)="updateData()" [disabled]="reactiveForm.invalid">Update</button>
     </form>
   </div>
+  <!-- <p>{{name}}</p> -->
+  <!-- <button (click)="changeChildData(childRef)">UpdateChild</button>
+  <app-employee-list [childName]='name' #childRef></app-employee-list> -->
